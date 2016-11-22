@@ -12,20 +12,14 @@ namespace events
 {
 	
 
-    class Handler_II
-    {
-        public void Message()
-        {
-            Console.WriteLine("Точно, уже 7!");
-        }    
-    }
+   
  
 	
 	public class Program
 	{
 		
 		public delegate void MyDelegate();
-		//public static event MyDelegate MyEvent;
+	    public static event MyDelegate MyEvent;
 		public static MyDelegate itemdel;
 		public static void Main(string[] args)
 		{
@@ -33,11 +27,11 @@ namespace events
 			
 			Handler_II hh = new Handler_II();
 			itemdel = hh.Message;
-			//itemdel += hh.Message;
+			itemdel += hh.Message;
 			itemdel += Handler_I.Message;
 			
-			//MyEvent += hh.Message;
-			//MyEvent += Handler_I.Message;
+			MyEvent += hh.Message;
+			MyEvent += Handler_I.Message;
 			ClassCounter.Count();
 			
 			
@@ -45,27 +39,38 @@ namespace events
 			Console.ReadKey(true);
 		}
 		static class ClassCounter  //Это класс - в котором производится счет.
-    {
-		
+		{
+		    public static int cc;
        static public void Count()
         {
             for (int i = 0; i < 10; i++)
             {
+                    cc = i;
             	Console.WriteLine("  "+i);
-            	if (itemdel/*MyEvent*/ != null)
+            	if (MyEvent != null)
             		if (i == 7)
-            			//MyEvent();
-            			itemdel();
-            		
+            			 MyEvent();
+            	if (itemdel != null)
+            	    if (i == 9)
+                         itemdel();
+            	        Console.WriteLine("\n\n\n");
+                        itemdel();
             }
         }
     }
-	public static class Handler_I //Это класс, реагирующий на событие (счет равен 71) записью строки в консоли.
+        class Handler_II
+        {
+            public void Message()
+            {
+                Console.WriteLine($"Точно, уже {ClassCounter.cc}!");
+            }
+        }
+        public static class Handler_I //Это класс, реагирующий на событие (счет равен 71) записью строки в консоли.
     {
         public static void Message()
         {
             
-            Console.WriteLine("Пора действовать, ведь уже 7!"); 
+            Console.WriteLine($"Пора действовать, ведь уже {ClassCounter.cc}!"); 
         }                                                        
     }
 	}
