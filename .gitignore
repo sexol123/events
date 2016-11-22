@@ -215,3 +215,10 @@ pip-log.txt
 
 #Mr Developer
 .mr.developer.cfg
+*.pdb
+events/obj/Debug/events.csprojResolveAssemblyReference.cache
+*.exe
+events/obj/Debug/events.pdb
+*.pdb
+events/obj/Debug/events.pdb
+*.pdb
