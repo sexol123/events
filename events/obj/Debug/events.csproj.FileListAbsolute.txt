@@ -1,0 +1,6 @@
+C:\Users\sexol\Documents\SharpDevelop Projects\events\events\obj\Debug\events.csprojResolveAssemblyReference.cache
+C:\Users\sexol\Documents\SharpDevelop Projects\events\events\bin\Debug\events.exe.config
+C:\Users\sexol\Documents\SharpDevelop Projects\events\events\bin\Debug\events.exe
+C:\Users\sexol\Documents\SharpDevelop Projects\events\events\bin\Debug\events.pdb
+C:\Users\sexol\Documents\SharpDevelop Projects\events\events\obj\Debug\events.exe
+C:\Users\sexol\Documents\SharpDevelop Projects\events\events\obj\Debug\events.pdb
